@@ -57,7 +57,7 @@ function MainApp() {
   };
 
   return (
-    <div className="min-h-screen bg-[#0B0B0B] text-white flex flex-col font-sans selection:bg-[#FFD21F] selection:text-black">
+    <div className="min-h-screen bg-[#070709] text-[#EDEDED] flex flex-col font-sans selection:bg-[#FF4500] selection:text-white">
       {/* Top Navbar */}
       <Navbar
         onOrderNowClick={scrollToMenu}

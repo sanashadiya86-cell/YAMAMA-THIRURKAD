@@ -57,10 +57,10 @@ export const FloatingActions: React.FC<FloatingActionsProps> = ({
         <div className="fixed bottom-3 left-3 right-3 sm:hidden z-30 animate-in slide-in-from-bottom-2">
           <button
             onClick={() => setIsOpen(true)}
-            className="w-full py-3.5 px-4 bg-[#E21B23] text-white font-bold text-xs uppercase tracking-wider rounded-xl shadow-2xl flex items-center justify-between border border-white/20 active:scale-98 transition-transform glow-red"
+            className="w-full py-3.5 px-4 bg-gradient-to-r from-[#FF4500] via-[#E21B23] to-[#FF2200] text-white font-extrabold text-xs uppercase tracking-wider rounded-2xl shadow-2xl flex items-center justify-between border border-[#FFD21F]/40 active:scale-98 transition-transform glow-fire"
           >
             <div className="flex items-center gap-2">
-              <span className="w-6 h-6 rounded-full bg-white text-[#E21B23] flex items-center justify-center text-xs font-mono font-extrabold">
+              <span className="w-6 h-6 rounded-full bg-white text-[#FF4500] flex items-center justify-center text-xs font-mono font-black shadow">
                 {totalItems}
               </span>
               <span>View Order Bag</span>

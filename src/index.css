@@ -8,24 +8,143 @@
 :root {
   --font-sans: "Outfit", "Plus Jakarta Sans", system-ui, -apple-system, sans-serif;
   --font-display: "Syne", system-ui, -apple-system, sans-serif;
+  --charcoal-black: #08080a;
+  --charcoal-deep: #0e0e11;
+  --charcoal-surface: #151519;
+  --smoke-grey: #24242a;
+  --smoke-border: #33333d;
+  --fire-flame: #ff3e00;
+  --fire-amber: #ff9100;
+  --fire-yellow: #ffd21f;
+}
+
+body {
+  background-color: #070709;
+  color: #ededed;
+  background-image: 
+    radial-gradient(ellipse 80% 50% at 50% -20%, rgba(255, 60, 0, 0.12), transparent),
+    radial-gradient(circle at 10% 30%, rgba(255, 140, 0, 0.05), transparent 40%),
+    radial-gradient(circle at 90% 70%, rgba(200, 30, 20, 0.06), transparent 50%),
+    radial-gradient(circle at 50% 90%, rgba(24, 24, 28, 0.9), rgba(7, 7, 9, 1));
+  background-attachment: fixed;
 }
 
 .font-display {
   font-family: var(--font-display), "Syne", sans-serif;
 }
 
-.glow-gold {
-  box-shadow: 0 0 30px -5px rgba(255, 210, 31, 0.25);
+/* Fire & Smoke Custom Utilities */
+.charcoal-bg {
+  background-color: #0c0c0f;
 }
 
-.glow-red {
-  box-shadow: 0 0 25px -4px rgba(226, 27, 35, 0.35);
+.charcoal-card {
+  background: linear-gradient(145deg, #16161b 0%, #101014 60%, #0c0c0f 100%);
+  border: 1px solid rgba(80, 80, 95, 0.35);
+}
+
+.charcoal-card-hover {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.charcoal-card-hover:hover {
+  border-color: rgba(255, 100, 0, 0.55);
+  box-shadow: 0 10px 30px -10px rgba(255, 60, 0, 0.25);
+}
+
+.smoke-card {
+  background: linear-gradient(135deg, rgba(30, 30, 38, 0.85) 0%, rgba(18, 18, 22, 0.95) 100%);
+  border: 1px solid rgba(75, 75, 90, 0.4);
+  backdrop-filter: blur(12px);
+}
+
+.glow-fire {
+  box-shadow: 0 0 35px -5px rgba(255, 62, 0, 0.45);
+}
+
+.glow-ember {
+  box-shadow: 0 0 30px -5px rgba(255, 160, 0, 0.4);
+}
+
+.glow-gold {
+  box-shadow: 0 0 30px -5px rgba(255, 210, 31, 0.35);
+}
+
+.glow-smoke {
+  box-shadow: 0 15px 40px -15px rgba(0, 0, 0, 0.8), 0 0 20px -5px rgba(80, 80, 95, 0.3);
+}
+
+/* Fire and Golden gradients */
+.text-fire-gradient {
+  -webkit-text-fill-color: transparent;
+  background: linear-gradient(135deg, #fff275 0%, #ff9800 35%, #ff3d00 70%, #d80000 100%);
+  -webkit-background-clip: text;
 }
 
 .text-gold-gradient {
   -webkit-text-fill-color: transparent;
-  background: linear-gradient(135deg, #fff176 0%, #ffd21f 60%, #e0a800 100%);
+  background: linear-gradient(135deg, #fff7a1 0%, #ffd21f 50%, #e09b00 100%);
   -webkit-background-clip: text;
+}
+
+.text-smoke-gradient {
+  -webkit-text-fill-color: transparent;
+  background: linear-gradient(135deg, #f4f4f5 0%, #a1a1aa 60%, #71717a 100%);
+  -webkit-background-clip: text;
+}
+
+/* Burning Charcoal Border */
+.border-burning {
+  border-image: linear-gradient(to right, #ff3d00, #ff9800, #ffd21f, #ff3d00) 1;
+}
+
+/* Animations */
+@keyframes spinSlow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-spin-slow {
+  animation: spinSlow 12s linear infinite;
+}
+
+@keyframes flamePulse {
+  0%, 100% {
+    opacity: 0.8;
+    transform: scale(1);
+    filter: drop-shadow(0 0 12px rgba(255, 60, 0, 0.6));
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.05);
+    filter: drop-shadow(0 0 24px rgba(255, 140, 0, 0.9));
+  }
+}
+
+.animate-flame-pulse {
+  animation: flamePulse 2.8s ease-in-out infinite;
+}
+
+@keyframes smokeFloat {
+  0% {
+    transform: translateY(0px) scale(1);
+    opacity: 0.15;
+  }
+  50% {
+    transform: translateY(-8px) scale(1.04);
+    opacity: 0.35;
+  }
+  100% {
+    transform: translateY(0px) scale(1);
+    opacity: 0.15;
+  }
+}
+
+.animate-smoke-float {
+  animation: smokeFloat 6s ease-in-out infinite;
 }
 
 ::-webkit-scrollbar {
@@ -34,15 +153,17 @@
 }
 
 ::-webkit-scrollbar-track {
-  background: #0b0b0b;
+  background: #08080a;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #262626;
+  background: #27272e;
   border-radius: 4px;
+  border: 1px solid rgba(255, 70, 0, 0.15);
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #3f3f46;
+  background: #444450;
+  border-color: rgba(255, 140, 0, 0.4);
 }
 

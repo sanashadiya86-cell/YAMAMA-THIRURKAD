@@ -40,12 +40,17 @@ export interface Review {
   initials: string;
   dishRecommended?: string;
   location: string;
+  orderType?: 'Dine-In' | 'Free Home Delivery' | 'Takeaway';
+  smokinessRating?: number;
+  tasteRating?: number;
+  serviceRating?: number;
+  verified?: boolean;
 }
 
 export interface GalleryItem {
   id: string;
   title: string;
-  category: 'Shop & Ambiance' | 'Menu Card' | 'Grills' | 'Food';
+  category: 'Shop & Ambiance' | 'Restaurant & Storefront' | 'Menu Card' | 'Grills' | 'Food';
   imageUrl: string;
   caption: string;
 }
@@ -85,5 +90,6 @@ export interface RestaurantInfo {
     whatsapp: string;
     whatsapp2: string;
     googleMaps: string;
+    googleMapsDirections?: string;
   };
 }
